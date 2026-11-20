@@ -1,0 +1,33 @@
+#An alias for downloading a YouTube video and converting it to audio only MP3.
+
+#Pull the sound out of a YouTube video and save it for later experimentation.
+alias ytdMp3='yt-dlp -x --audio-format mp3 --audio-quality 5'
+function grabMp3FmYt {
+
+  ytdMp3 -I $1 -o "%(playlist_index)s-%(title)s.%(ext)s" --replace-in-metadata "title" " " "_" --replace-in-metadata "title" "\|" "-" --replace-in-metadata "title" "\(" "_" --replace-in-metadata "title" "\)" "" "$2"
+
+}
+
+# Navigation
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ll='ls -lah --color=auto'
+alias la='ls -A --color=auto'
+
+# Git
+alias gs='git status'
+alias ga='git add'
+alias gc='git commit'
+alias gp='git push'
+alias gl='git log --oneline --graph'
+
+# Safety
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+
+# System
+#alias update='sudo apt update && sudo apt upgrade -y'   # Change for your distro
+alias reload='source ~/.bashrc'
+alias myip='curl ifconfig.me'
+
